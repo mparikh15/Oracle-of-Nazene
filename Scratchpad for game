@@ -1,0 +1,11 @@
+For boss fight, use a timed/ limited loop to mkae the fight work...
+So character gets 3-4 chances to do the right thing otherwise the monster wins (unconcsious, go outside.)
+
+for i in range
+  options for fight
+  option
+  etc..
+
+  die once the timer runs out. ---> After loop or in loop? Maybe run function on 5th iteration or whatever.
+    counter++ on each unsuccessful attempt...
+    counter == 5, die? 
