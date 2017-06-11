@@ -8,4 +8,8 @@ for i in range
 
   die once the timer runs out. ---> After loop or in loop? Maybe run function on 5th iteration or whatever.
     counter++ on each unsuccessful attempt...
-    counter == 5, die? 
+    counter == 5, die?
+
+
+Fix name - such that pressing enter past it doesn't end the game.
+  Why does this happen? Return name and navi_talk, but maybe a blank ends at return (null?)

@@ -46,6 +46,7 @@ def door_choice(key):
 
     elif "NAVI" in lcchoice:
         print "Navi doesn't have any useful suggestions here."
+        door_choice(key)
 
     else:
         print "That's not really an option."
@@ -275,6 +276,7 @@ def middle_path():
         print "\nWhat do you do?"
         choice = raw_input("> ")
         choice = choice.upper()
+        print pole
 
         if "DOOR" in choice and not small_key:
             print "You walk over towards the door at the far end of the hallway, but you realize"
@@ -291,15 +293,7 @@ def middle_path():
             print "You leave behind the pole because it's all but fallen apart at this point. You walk into the new room."
             large_chamber()
 
-        elif "PUDDLE" in choice or "RIGHT" in choice and not pole:
-            print "You walk over to the puddle on the right, but realize that the water is really deep."
-            raw_input(" ")
-            print "There's no way you can reach it by yourself, but there seems to be a string tied around it."
-            raw_input(" ")
-            print "Maybe if you can find a something to use as a pole..."
-            raw_input(" ")
-
-        elif "PUDDLE" in choice or "RIGHT" in choice or "WATER" in choice and pole:
+        elif pole and "PUDDLE" in choice or "RIGHT" in choice or "WATER" in choice:
             print "You use the wooden part of the spear you found to dig up the shiny object."
             raw_input(" ")
             print "It's dark and far down, so it takes you a few tries, but you"
@@ -307,6 +301,15 @@ def middle_path():
             raw_input(" ")
             print "Unfortunately the spear has more or less fallen apart. Don't think it'll be useful anymore."
             small_key = True
+
+        elif "PUDDLE" in choice or "RIGHT" in choice or "WATER" in choice and not pole:
+            print "You walk over to the puddle on the right, but realize that the water is really deep."
+            raw_input(" ")
+            print "There's no way you can reach it by yourself, but there seems to be a string tied around it."
+            raw_input(" ")
+            print "Maybe if you can find a something to use as a pole..."
+            raw_input(" ")
+
 
         elif "BONES" in choice or "LEFT" in choice:
             print "You walk over to the bones. It looks like he may have been a soldier once."
@@ -322,6 +325,7 @@ def middle_path():
                 raw_input(" ")
                 print "Not ideal, but at least you have a pole now."
                 pole = True
+                print pole
 
             else:
                 print "You leave the spear there."
@@ -343,11 +347,14 @@ def start():
     choice = raw_input("> ")
     choice = choice.upper()
 
+
     if "YES" in choice or choice == "Y":
         print "'Okay great, you remember your name then, right? And it is:'\n"
         name = raw_input("> ")
+
         print "Okay, %s I'm glad your remeber your name." % (name)
         return name and navi_talk()
+
 
     elif "NO" in choice or choice == "N":
         print "'You don't remember anything huh? Well, your name is Zeke.'\n"
